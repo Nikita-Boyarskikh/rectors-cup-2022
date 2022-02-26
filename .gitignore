@@ -5,3 +5,5 @@ node_modules
 .eslintcache
 .npm
 out/
+public/sw.js*
+public/workbox-*.js*
