@@ -1,7 +1,10 @@
 import 'styles/globals.css'
+import ApiConfig from '../hooks/api';
 
 export default function Layout({ Component, pageProps }) {
   return (
-    <Component {...pageProps} />
+    <ApiConfig>
+      <Component {...pageProps} />
+    </ApiConfig>
   )
 }

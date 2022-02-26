@@ -1,22 +1,51 @@
-import { useEffect, useState } from 'react';
+import useSWR, { SWRConfig } from 'swr'
 
-const SPREADSHEET_ID = '1J4zdyvbm3qD3O5ZOOzfjIyh1JH24sjrETPOF5qgEwuo'
-const API_KEY = 'AIzaSyDkSzvnIny9wTOdEf6V_gPABamvHtYxrI4'
-const INFO_GRID_ID = 'info'
-const STUDENTS_GRID_ID = 'students'
-const TEAMS_GRID_ID = 'teams'
-const UPDATE_INTERVAL = 15000
+import config from '../config'
 
-const getRangeValue = async ({ range, gid = null }) => {
-  // https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/get
-  const rangeWithGid = gid ? `${gid}!${range}` : range
-  const url =`https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${rangeWithGid}?key=${API_KEY}`
-  const response = await fetch(url)
-  const json = await response.json()
-  return json.values ?? []
+const Config = ({ children }) => {
+  return (
+    <SWRConfig
+      value={{
+        refreshInterval: config.api.updateInterval,
+        focusThrottleInterval: config.api.focusThrottleInterval,
+        dedupingInterval: config.api.dedupingInterval,
+        errorRetryInterval: config.api.errorRetryInterval,
+        errorRetryCount: config.api.errorRetryCount,
+        async fetcher(...args) {
+          const response = await fetch(...args)
+          return await response.json()
+        },
+        onLoadingSlow(key) {
+          console.warn(`${key} is loading slow...`)
+        },
+        onError: (error, key) => {
+          if (error.status !== 403 && error.status !== 404) {
+            console.error(`${key} is failed to load`)
+          }
+        },
+      }}
+    >
+      {children}
+    </SWRConfig>
+  )
 }
 
-const getValue = async ({ index = null, endIndex = index, columns = [], gid = null } = {}) => {
+export const useRangeValue = ({ range, gid = null }) => {
+  // https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/get
+  const baseUrl = 'https://sheets.googleapis.com'
+  const rangeWithGid = gid ? `${gid}!${range}` : range
+  const params = `key=${config.api.apiKey}`
+  const url = `${baseUrl}/v4/spreadsheets/${config.api.spreadsheetId}/values/${rangeWithGid}?${params}`
+  const { data } = useSWR(url)
+
+  if (data) {
+    return data.values ?? []
+  }
+
+  return null
+}
+
+export const useValue = ({ index = null, endIndex = index, columns = [], gid = null } = {}) => {
   const formatIndex = (index) => {
     if (!index) {
       return ''
@@ -35,9 +64,9 @@ const getValue = async ({ index = null, endIndex = index, columns = [], gid = nu
   const endIndexStr = formatIndex(endIndex)
   const range = `${startColumn}${startIndexStr}:${endColumn}${endIndexStr}`
 
-  const rows = await getRangeValue({ gid, range })
+  const rows = useRangeValue({ gid, range })
 
-  if (rows.length === 0) {
+  if (!rows || rows.length === 0) {
     return null
   }
 
@@ -50,11 +79,11 @@ const getValue = async ({ index = null, endIndex = index, columns = [], gid = nu
   })
 }
 
-const getInfoValue = async ({ index, endIndex = index } = {}) => {
-  return await getValue({
+export const useInfoValue = ({ index, endIndex = index } = {}) => {
+  return useValue({
     index,
     endIndex,
-    gid: INFO_GRID_ID,
+    gid: config.api.infoGridId,
     columns: [
       'time',
       'startNumber',
@@ -70,11 +99,11 @@ const getInfoValue = async ({ index, endIndex = index } = {}) => {
   })
 }
 
-const getStudentValue = async ({ index, endIndex = index } = {}) => {
-  return await getValue({
+export const useStudentValue = ({ index, endIndex = index } = {}) => {
+  return useValue({
     index,
     endIndex,
-    gid: STUDENTS_GRID_ID,
+    gid: config.api.studentsGridId,
     columns: [
       'startNumber',
       'surname',
@@ -88,11 +117,11 @@ const getStudentValue = async ({ index, endIndex = index } = {}) => {
   })
 }
 
-const getTeamValue = async ({ index, endIndex = index } = {}) => {
-  return await getValue({
+export const useTeamValue = ({ index, endIndex = index } = {}) => {
+  return useValue({
     index,
     endIndex,
-    gid: TEAMS_GRID_ID,
+    gid: config.api.teamsGridId,
     columns: [
       'teamNumber',
       'faculty',
@@ -101,37 +130,15 @@ const getTeamValue = async ({ index, endIndex = index } = {}) => {
   })
 }
 
-const checkIfEnabled = async () => {
-  const rows = await getRangeValue({ gid: INFO_GRID_ID, range: 'L2' })
-  return rows.length === 1 && rows[0][0] === 'TRUE'
-}
-
-const getInfo = async () => {
-  if (await checkIfEnabled()) {
-    return await getInfoValue()
-  }
-
-  return null;
+export const useUpdateEnabled = () => {
+  const rows = useRangeValue({ gid: config.api.infoGridId, range: 'L2' })
+  return rows && rows.length === 1 && rows[0][0] === 'TRUE'
 }
 
 export const useInfo = () => {
-  const [info, setInfo] = useState(null)
-
-  const updateInfo = () => {
-    getInfo().then(data => {
-      setInfo(data)
-    })
-  }
-
-  useEffect(() => {
-    updateInfo()
-
-    const interval = setInterval(updateInfo, UPDATE_INTERVAL)
-
-    return () => {
-      clearInterval(interval)
-    }
-  }, [setInfo])
-
-  return info
+  const isEnabled = useUpdateEnabled()
+  const info = useInfoValue()
+  return isEnabled ? info : null
 }
+
+export default Config
