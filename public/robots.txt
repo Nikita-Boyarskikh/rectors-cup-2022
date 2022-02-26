@@ -1,0 +1,26 @@
+User-agent: *
+Disallow: *utm=
+Disallow: *.js
+Disallow: *.css
+Disallow: *.png
+Disallow: *.jpg
+Disallow: *.svg
+
+User-agent: GoogleBot
+Disallow: *utm=
+Allow: *.js
+Allow: *.css
+Allow: *.png
+Allow: *.jpg
+Allow: *.svg
+
+User-agent: Yandex
+Disallow: *utm=
+Allow: *.js
+Allow: *.css
+Allow: *.png
+Allow: *.jpg
+Allow: *.svg
+
+Sitemap: https://bg.netlify.com/sitemap.xml
+Host: https://site.ru

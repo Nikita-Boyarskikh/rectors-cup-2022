@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "name": "Кубок ректора 2022 — таблица результатов",
+  "short_name": "Кубок ректора",
+  "categories": [
+    "sports",
+    "news"
+  ],
+  "lang": "ru-RU",
+  "background_color": "#123456",
+  "theme_color": "#123456",
+  "display": "standalone",
+  "orientation": "landscape-primary",
+  "icons": [
+    {
+      "src": "/icons/favicon-256.webp",
+      "type": "image/webp",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/icons/favicon-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/icons/favicon-64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "/icons/favicon-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/icons/favicon-16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "/icons/mask-icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "maskable"
+    }
+  ]
+}

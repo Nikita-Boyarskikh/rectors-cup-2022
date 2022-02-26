@@ -1,13 +1,18 @@
 {
   "name": "rectors-cup-2022",
   "version": "0.1.0",
+  "description": "Web application to watch BMSTU Rector's Cup 2022 results in real time",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
+  "repository": "github:Nikita-Boyarskikh/rectors-cup-2022",
+  "bugs": "https://github.com/Nikita-Boyarskikh/rectors-cup-2022/issues",
+  "homepage": "https://bg.netlify.com",
+  "browserslist": ["defaults"],
   "dependencies": {
     "next": "12.1.0",
     "react": "17.0.2",
