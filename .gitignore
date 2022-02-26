@@ -1,0 +1,7 @@
+.DS_Store
+.next/
+node_modules
+.idea
+.eslintcache
+.npm
+out/
