@@ -1,6 +1,6 @@
 export default function Seo({ pageTitle, description, siteName, currentURL, keywords }) {
-  const previewImage = '';
-  const previewImageAlt = '';
+  const previewImage = ''
+  const previewImageAlt = ''
 
   return (
     <>

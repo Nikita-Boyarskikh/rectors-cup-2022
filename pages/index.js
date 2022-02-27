@@ -2,9 +2,9 @@ import styles from './Index.module.css'
 
 import Head from 'next/head'
 
-import Seo from 'components/seo';
-import config from '../config';
-import { useInfo } from '../hooks/api';
+import Seo from 'components/seo'
+import config from '../config'
+import { useInfo } from '../hooks/api'
 
 const Index = () => {
   const info = useInfo()

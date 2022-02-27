@@ -1,11 +1,14 @@
 import 'styles/globals.css'
 
+import ApiConfig from 'hooks/api';
 import GlobalErrorBoundary from 'components/global-error-boundary'
 
 export default function Layout({ Component, pageProps }) {
   return (
     <GlobalErrorBoundary>
-      <Component {...pageProps} />
+      <ApiConfig>
+        <Component {...pageProps} />
+      </ApiConfig>
     </GlobalErrorBoundary>
   )
 }
