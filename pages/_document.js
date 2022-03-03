@@ -4,8 +4,8 @@ import Favicons from 'components/favicons'
 
 export default function Document() {
   return (
-    <Html>
-      <Head lang="ru">
+    <Html lang="ru" dir="ltr">
+      <Head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" key="font" />
         <Favicons />
       </Head>

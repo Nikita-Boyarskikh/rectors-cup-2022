@@ -4,6 +4,8 @@ export default function Seo({ pageTitle, description, siteName, currentURL, keyw
 
   return (
     <>
+      <title>{pageTitle}</title>
+
       <meta charSet="utf-8" key="charset" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" key="xuicompatible" />
       <meta
@@ -13,6 +15,7 @@ export default function Seo({ pageTitle, description, siteName, currentURL, keyw
       />
       <meta name="mobile-web-app-capable" content="yes" key="mobilewebcap" />
       <meta name="description" content={description} key="description" />
+      <link rel="canonical" href="https://bg.netlify.com" />
 
       <meta name="application-name" content={siteName} key="appmobilename" />
       <meta name="apple-mobile-web-app-capable" content="yes" key="appmobilecap" />

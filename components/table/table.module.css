@@ -1,0 +1,21 @@
+.table-container {
+  overflow-x: auto;
+  display: none;
+}
+
+.header.fixed {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  box-shadow: var(--shadow-spec-focus, 0 2px 8px 0 rgba(var(--theme-rgb-section-shadow, 0), 0, 0, 0.1));
+}
+
+@media (min-width: 400px) {
+  .table-container {
+    display: block;
+  }
+
+  .lists-container {
+    display: none;
+  }
+}

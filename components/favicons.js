@@ -20,10 +20,14 @@ const Favicons = () => {
       { /* Favicon */ }
       <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" key="favicon16" />
       <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" key="favicon32" />
-      <link rel="shortcut icon" href="/favicon.ico" key="favicon" />
+      <link rel="shortcut icon" type="image/png" sizes="32x32" href="/favicon.png" key="favicon" />
 
       { /* MacOS */ }
       <link rel="mask-icon" href="/icons/mask-icon.svg" color="#123456" key="maskicon" />
+
+      { /* Microsoft 8 Tablet */ }
+      <meta name="msapplication-TileColor" content="#123456">
+      <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 
       { /* Apple Touch */ }
       <link rel="apple-touch-icon-precomposed" href="/icons/touch-icon-iphone-precomposed.png" key="appprecomp" />
