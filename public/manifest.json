@@ -2,6 +2,8 @@
   "version": "0.1.0",
   "name": "Кубок ректора 2022 — таблица результатов",
   "short_name": "Кубок ректора",
+  "id": "/",
+  "start_url": "/",
   "categories": [
     "sports",
     "news"

@@ -19,6 +19,7 @@ const Index = () => {
   return (
     <>
       <Head>
+        <title>{config.seo.title}</title>
         <Seo
           currentURL={currentUrl}
           pageTitle={config.seo.title}

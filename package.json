@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start",
+    "start": "next build && next start",
     "lint": "next lint"
   },
   "repository": "github:Nikita-Boyarskikh/rectors-cup-2022",

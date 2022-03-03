@@ -26,8 +26,8 @@ const Favicons = () => {
       <link rel="mask-icon" href="/icons/mask-icon.svg" color="#123456" key="maskicon" />
 
       { /* Microsoft 8 Tablet */ }
-      <meta name="msapplication-TileColor" content="#123456">
-      <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+      <meta name="msapplication-TileColor" content="#123456" />
+      <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
 
       { /* Apple Touch */ }
       <link rel="apple-touch-icon-precomposed" href="/icons/touch-icon-iphone-precomposed.png" key="appprecomp" />

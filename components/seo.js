@@ -4,8 +4,6 @@ export default function Seo({ pageTitle, description, siteName, currentURL, keyw
 
   return (
     <>
-      <title>{pageTitle}</title>
-
       <meta charSet="utf-8" key="charset" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" key="xuicompatible" />
       <meta
