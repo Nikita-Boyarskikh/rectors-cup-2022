@@ -23,11 +23,11 @@ const Favicons = () => {
       <link rel="shortcut icon" type="image/png" sizes="32x32" href="/favicon.png" key="favicon" />
 
       { /* MacOS */ }
-      <link rel="mask-icon" href="/icons/mask-icon.svg" color="#123456" key="maskicon" />
+      <link rel="mask-icon" href="/icons/mask-icon.svg" color="#E35F22" key="maskicon" />
 
       { /* Microsoft 8 Tablet */ }
-      <meta name="msapplication-TileColor" content="#123456" />
-      <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+      <meta name="msapplication-TileColor" content="#E35F22" />
+      <meta name="msapplication-TileImage" content="/icons/mstile-144x144.png" />
 
       { /* Apple Touch */ }
       <link rel="apple-touch-icon-precomposed" href="/icons/touch-icon-iphone-precomposed.png" key="appprecomp" />

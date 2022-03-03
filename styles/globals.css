@@ -1,3 +1,13 @@
+:root {
+  --bg-color-primary: #FEFEFE;
+  --bg-color-secondary: #F9F8F5;
+  --bg-color-accent: #E35F22;
+
+  --text-color-primary: #000000;
+  --text-color-secondary: #898989;
+  --text-color-accent: #FFFFFF;
+}
+
 html,
 body {
   padding: 0;

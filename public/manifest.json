@@ -9,8 +9,8 @@
     "news"
   ],
   "lang": "ru-RU",
-  "background_color": "#123456",
-  "theme_color": "#123456",
+  "background_color": "#E35F22",
+  "theme_color": "#E35F22",
   "display": "standalone",
   "orientation": "landscape-primary",
   "icons": [
