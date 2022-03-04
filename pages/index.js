@@ -1,7 +1,5 @@
 import styles from './Index.module.css'
 
-import Head from 'next/head'
-
 import Seo from 'components/seo'
 import config from '../config'
 import { useInfo } from '../hooks/api'
@@ -18,16 +16,13 @@ const Index = () => {
 
   return (
     <>
-      <Head>
-        <title>{config.seo.title}</title>
-        <Seo
-          currentURL={currentUrl}
-          pageTitle={config.seo.title}
-          siteName={config.seo.title}
-          description={config.seo.description}
-          keywords={config.seo.keywords}
-        />
-      </Head>
+      <Seo
+        currentURL={currentUrl}
+        pageTitle={config.seo.title}
+        siteName={config.seo.title}
+        description={config.seo.description}
+        keywords={config.seo.keywords}
+      />
       <pre>
         {JSON.stringify(info, null, 2)}
       </pre>
