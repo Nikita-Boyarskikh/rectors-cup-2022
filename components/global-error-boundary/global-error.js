@@ -1,4 +1,6 @@
-import config from '../config';
+import Link from 'next/link'
+
+import config from '../../config'
 
 const GlobalError = () => {
   const googleTableLink = `https://docs.google.com/spreadsheets/d/${config.api.spreadsheetId}`
@@ -7,10 +9,11 @@ const GlobalError = () => {
     <main>
       <h1>Упс! Что-то пошло не так :(</h1>
       <div>
-        Сообщите об ошибке нам по <a href="mailto:nboyarskikh@gmail.com">email</a>,
+        Сообщите об ошибке <Link href="mailto:nboyarskikh@gmail.com"><a>нам по email</a></Link>,
         и мы постараемся поправить как можно скорее
 
-        А пока можете посмотреть результаты в гугл-таблице: <a href={googleTableLink}>{googleTableLink}</a>
+        А пока можете посмотреть результаты в гугл-таблице:
+        <Link href={googleTableLink}><a>{googleTableLink}</a></Link>
       </div>
     </main>
   )

@@ -1,0 +1,36 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 30px;
+}
+
+.footerLabel {
+  text-transform: uppercase;
+}
+
+.footerIcons {
+  display: flex;
+  height: 100px;
+}
+
+.footerIcon {
+  max-width: 120px;
+  display: block;
+  margin: auto 15px;
+}
+
+.footerIcon img {
+  height: 100px;
+}
+
+.startsAt {
+  text-transform: uppercase;
+}
+
+@media (--mobile-media) {
+  .footer {
+    flex-direction: column;
+  }
+}

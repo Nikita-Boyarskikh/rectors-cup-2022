@@ -1,0 +1,21 @@
+{
+  "plugins": [
+    "postcss-flexbugs-fixes",
+    [
+      "postcss-preset-env",
+      {
+        "importFrom": "styles/globals.css",
+        "autoprefixer": {
+          "flexbox": "no-2009"
+        },
+        "stage": 2,
+        "features": {
+          "custom-properties": true,
+          "custom-selectors": true,
+          "custom-media-queries": true,
+          "nesting-rules": true
+        }
+      }
+    ]
+  ]
+}

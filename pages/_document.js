@@ -6,7 +6,10 @@ export default function Document() {
   return (
     <Html lang="ru" dir="ltr">
       <Head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=optional" key="font" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" key="googleapisPreconnect" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" key="gstaticPreconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" key="russo" />
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" key="rubik" />
         <Favicons />
       </Head>
       <body>

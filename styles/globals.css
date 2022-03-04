@@ -1,19 +1,30 @@
+@custom-media --mobile-media screen and (width < 768px);
+@custom-media --tablet-media screen and (768px <= width < 1200px);
+@custom-media --desktop-media screen and (1200px <= width < 1600px);
+@custom-media --tv-media screen and (width >= 1600px);
+@custom-media --print-media print;
+
 :root {
   --bg-color-primary: #FEFEFE;
   --bg-color-secondary: #F9F8F5;
   --bg-color-accent: #E35F22;
 
-  --text-color-primary: #000000;
+  --text-color-primary: #2A2927;
   --text-color-secondary: #898989;
   --text-color-accent: #FFFFFF;
+
+  --font-title: 'Russo One', sans-serif;
+  --font-text: 'Rubik', sans-serif;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--font-text);
+  background-color: var(--bg-color-primary);
 }
 
 a {

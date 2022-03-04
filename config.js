@@ -1,5 +1,6 @@
 const config = {
   baseUrl: 'bg-2020.vercel.app',
+  minifiedUrl: 'clck.ru/dVwtp',
 
   seo: {
     title: 'Кубок ректора 2022 — таблица результатов',
@@ -18,7 +19,13 @@ const config = {
     dedupingInterval: 5000,
     errorRetryInterval: 1000,
     errorRetryCount: 5,
-  }
+  },
+
+  countdownUpdatePerSecond: 10,
+  cupStartsAt: new Date('2022-03-13T11:00:00+03:00'),
+
+  tvTableUpdateIntervalSeconds: 5,
+  tvTableLinesPerPage: 7,
 }
 
 export default config

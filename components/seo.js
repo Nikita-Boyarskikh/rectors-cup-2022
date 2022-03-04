@@ -1,8 +1,21 @@
 import Head from 'next/head'
+import config from '../config'
 
-export default function Seo({ pageTitle, description, siteName, currentURL, keywords }) {
+export default function Seo({
+  pageTitle = config.seo.title,
+  siteName = config.seo.title,
+  description = config.seo.description,
+  keywords = config.seo.keywords,
+} = {}) {
   const previewImage = ''
   const previewImageAlt = ''
+
+  let currentUrl = `https://${config.baseUrl}`
+  try {
+    currentUrl = window.location.href
+  } catch {
+    // ignore window is undefined during SSR
+  }
 
   return (
     <Head>
@@ -21,15 +34,15 @@ export default function Seo({ pageTitle, description, siteName, currentURL, keyw
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary" key="twcard" />
-      <meta name="twitter:url" content={currentURL} key="twurl" />
+      <meta name="twitter:url" content={currentUrl} key="twurl" />
       <meta property="twitter:image" content={previewImage} key="twimage" />
       <meta property="twitter:image:alt" content={previewImageAlt} key="twimagealt" />
       <meta property="twitter:title" content={pageTitle} key="twtitle" />
       <meta property="twitter:description" content={description} key="twdesc" />
 
       {/* Open Graph */}
-      <meta property="og:url" content={currentURL} key="ogurl" />
-      <meta property="og:type" content={currentURL} key="ogtype" />
+      <meta property="og:url" content={currentUrl} key="ogurl" />
+      <meta property="og:type" content={currentUrl} key="ogtype" />
       <meta property="og:image" content={previewImage} key="ogimage" />
       <meta property="og:image:alt" content={previewImageAlt} key="ogimagealt" />
       <meta property="og:site_name" content={siteName} key="ogsitename" />
