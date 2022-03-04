@@ -1,16 +1,15 @@
+import Head from 'next/head'
+
 export default function Seo({ pageTitle, description, siteName, currentURL, keywords }) {
   const previewImage = ''
   const previewImageAlt = ''
 
   return (
-    <>
+    <Head>
+      <title>{pageTitle}</title>
       <meta charSet="utf-8" key="charset" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" key="xuicompatible" />
-      <meta
-        name="viewport"
-        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-        key="viewport"
-      />
+      <meta name="viewport" content="width=device-width,initial-scale=1" key="viewport" />
       <meta name="mobile-web-app-capable" content="yes" key="mobilewebcap" />
       <meta name="description" content={description} key="description" />
       <link rel="canonical" href="https://bg-2020.vercel.app" />
@@ -39,6 +38,6 @@ export default function Seo({ pageTitle, description, siteName, currentURL, keyw
 
       <meta name="keywords" content={keywords} key="keywords" />
       <meta name="robots" content="all" key="robots" />
-    </>
+    </Head>
   )
 }
