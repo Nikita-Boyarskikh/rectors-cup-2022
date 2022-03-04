@@ -30,10 +30,22 @@ const Favicons = () => {
       <meta name="msapplication-TileImage" content="/icons/mstile-144x144.png" />
 
       { /* Apple Touch */ }
-      <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/apple-touch-icon-precomposed.png" key="appprecomp180" />
-      <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-152x152-precomposed.png" key="appprecomp" />
-      <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152-precomposed.png" key="appprecomp152" />
-      <link rel="apple-touch-icon-precomposed" sizes="167x167" href="/apple-touch-icon-152x152-precomposed.png" key="appprecomp167" />
+      <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" key="appicon57" />
+      <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png" key="appicon60" />
+      <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" key="appicon72" />
+      <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" key="appicon76" />
+      <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" key="appicon114" />
+      <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" key="appicon120" />
+      <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" key="appicon144" />
+      <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" key="appicon152" />
+      <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57-precomposed.png" key="appprecomp57" />
+      <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60-precomposed.png" key="appprecomp60" />
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png" key="appprecomp72" />
+      <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76-precomposed.png" key="appprecomp76" />
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png" key="appiprecomp14" />
+      <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120-precomposed.png" key="appiprecomp20" />
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png" key="appiprecomp44" />
+      <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152-precomposed.png" key="appiprecomp52" />
     </>
   )
 }
