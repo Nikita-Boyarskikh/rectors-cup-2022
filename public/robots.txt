@@ -22,5 +22,5 @@ Allow: *.png
 Allow: *.jpg
 Allow: *.svg
 
-Sitemap: https://bg.netlify.com/sitemap.xml
-Host: https://site.ru
+Sitemap: https://bg-2020.vercel.app/sitemap.xml
+Host: https://bg-2020.vercel.app

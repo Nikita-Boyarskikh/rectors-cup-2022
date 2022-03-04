@@ -1,5 +1,5 @@
 const config = {
-  baseUrl: 'bg.netlify.com',
+  baseUrl: 'bg-2020.vercel.app',
 
   seo: {
     title: 'Кубок ректора 2022 — таблица результатов',

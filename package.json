@@ -11,7 +11,7 @@
   },
   "repository": "github:Nikita-Boyarskikh/rectors-cup-2022",
   "bugs": "https://github.com/Nikita-Boyarskikh/rectors-cup-2022/issues",
-  "homepage": "https://bg.netlify.com",
+  "homepage": "https://bg-2020.vercel.app",
   "browserslist": [
     "defaults"
   ],
