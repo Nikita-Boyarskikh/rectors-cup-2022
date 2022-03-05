@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import styles from './main-content.module.css'
 import config from '../../config'
 import { useCurrentTime } from 'hooks/utils'
 import { useInfo } from 'hooks/api'
@@ -45,10 +46,13 @@ const MainContent = () => {
   const remainingDays = pluralize(remainingDaysNumber, 'день', 'дня', 'дней')
 
   return (
-    <>
-      Кубок ректора начнётся через <br />
-      {remainingDays} {remainingHours} {remainingMinutes} {remainingSeconds}
-    </>
+    <div className={styles.countdown}>
+      Начало через <br />
+      {remainingDays} <br />
+      {remainingHours} <br />
+      {remainingMinutes} <br />
+      {remainingSeconds}
+    </div>
   )
 }
 

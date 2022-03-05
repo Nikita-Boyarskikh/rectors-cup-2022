@@ -3,9 +3,10 @@ import classNames from 'classnames'
 import QrLinkImage from 'public/images/qr-link.svg'
 import styles from './header.module.css'
 import config from '../../config'
+import { useUUID } from 'hooks/utils'
 
 const Header = ({ withLink = false }) => {
-  const minifiedHref = `https://${config.minifiedUrl}`
+  const linkId = useUUID()
 
   return (
     <header className={classNames(styles.header, {[styles.withLink]: withLink})}>
@@ -15,17 +16,14 @@ const Header = ({ withLink = false }) => {
       </div>
 
       <div className={styles.link}>
-        <span className={styles.linkLabel}>
-          Подробные результаты <br/> по ссылке &nbsp;
-          <a href={minifiedHref} target="_blank" rel="noreferrer">
-            {config.minifiedUrl}
+        <span aria-labelledby={linkId} className={styles.linkQr}>
+          <a href={`https://${config.minifiedUrl}`} target="_blank" rel="noreferrer">
+            <QrLinkImage />
           </a>
         </span>
 
-        <span className={styles.linkQr}>
-          <a href={minifiedHref} target="_blank" rel="noreferrer">
-            <QrLinkImage />
-          </a>
+        <span id={linkId} className={styles.linkLabel}>
+          Подробные результаты
         </span>
       </div>
     </header>

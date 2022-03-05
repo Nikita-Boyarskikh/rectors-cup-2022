@@ -26,7 +26,9 @@
 }
 
 .subtitle {
-  color: var(--text-color-secondary);
+  background-image: var(--bg-accent-gradient);
+  color: transparent;
+  background-clip: text;
   margin: 0;
 }
 
@@ -35,8 +37,8 @@
 }
 
 .linkLabel {
-  margin-right: 30px;
   white-space: nowrap;
+  line-height: 1.5rem;
 }
 
 .linkQr {
@@ -45,7 +47,7 @@
 
 .linkQr svg {
   display: block;
-  --qr-svg-size: calc(30px + 2 * var(--header-font-size));
+  --qr-svg-size: calc(30px + 2 * var(--header-font-size) - 1.5rem);
   width: var(--qr-svg-size);
   height: var(--qr-svg-size);
 }
@@ -53,6 +55,8 @@
 .withLink {
   & .link {
     display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   & .titles {

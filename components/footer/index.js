@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 import styles from './footer.module.css'
 import FvLogo from 'public/images/fv.jpg'
@@ -53,11 +52,15 @@ const Footer = () => {
       <span aria-labelledby={organizersId} role="group" className={styles.footerIcons}>
         {icons.map(({ src, alt, href }, i) => {
           return (
-            <Link key={i} href={href}>
-              <a className={styles.footerIcon}>
-                <Image src={src} alt={alt} placeholder="blur" />
-              </a>
-            </Link>
+            <a
+              key={i}
+              className={styles.footerIcon}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image src={src} alt={alt} placeholder="blur" />
+            </a>
           )
         })}
       </span>

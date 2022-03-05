@@ -1,19 +1,22 @@
-import Link from 'next/link'
-
+import styles from './global-error.module.css'
 import config from '../../config'
 
 const GlobalError = () => {
   const googleTableLink = `https://docs.google.com/spreadsheets/d/${config.api.spreadsheetId}`
 
   return (
-    <main>
+    <main className={styles.container}>
       <h1>Упс! Что-то пошло не так :(</h1>
-      <div>
-        Сообщите об ошибке <Link href="mailto:nboyarskikh@gmail.com"><a>нам по email</a></Link>,
-        и мы постараемся поправить как можно скорее
+      <div className={styles.description}>
+        <p>
+          Сообщите об ошибке <a href="mailto:nboyarskikh@gmail.com">нам по email</a>,<br />
+          и мы постараемся поправить как можно скорее
+        </p>
 
-        А пока можете посмотреть результаты в гугл-таблице:
-        <Link href={googleTableLink}><a>{googleTableLink}</a></Link>
+        <p>
+          А пока можете посмотреть результаты в гугл-таблице:<br />
+          <a href={googleTableLink} target="_blank" rel="noreferrer">{googleTableLink}</a>
+        </p>
       </div>
     </main>
   )
