@@ -1,32 +1,22 @@
-import styles from './Index.module.css'
+import styles from './index.module.css'
 
 import Seo from 'components/seo'
-import config from '../config'
-import { useInfo } from '../hooks/api'
+import Header from 'components/header'
+import Footer from 'components/footer'
+import MainContent from 'components/main-content'
 
 const Index = () => {
-  const info = useInfo()
-
-  let currentUrl = `https://${config.baseUrl}`
-  try {
-    currentUrl = window.location.href
-  } catch {
-    // ignore window is undefined during SSR
-  }
-
   return (
-    <>
-      <Seo
-        currentURL={currentUrl}
-        pageTitle={config.seo.title}
-        siteName={config.seo.title}
-        description={config.seo.description}
-        keywords={config.seo.keywords}
-      />
-      <pre>
-        {JSON.stringify(info, null, 2)}
-      </pre>
-    </>
+    <div className={styles.container}>
+      <Seo />
+      <Header />
+
+      <main className={styles.main}>
+        <MainContent />
+      </main>
+
+      <Footer />
+    </div>
   )
 }
 

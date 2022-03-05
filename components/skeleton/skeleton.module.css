@@ -1,0 +1,32 @@
+.skeleton {
+  display: block;
+}
+
+.skeleton-text {
+  border-radius: 2px;
+  transform: scale(1, 0.6);
+}
+
+.skeleton-text:empty::before {
+  content: "\200b";
+}
+
+@keyframes k-skeleton-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.k-skeleton-pulse .k-skeleton, .k-skeleton-pulse.k-skeleton {
+  animation: k-skeleton-pulse 1.5s ease-in-out .5s infinite;
+}
+
+.k-skeleton {
+  background-color: rgba(66, 66, 66, 0.2);
+}

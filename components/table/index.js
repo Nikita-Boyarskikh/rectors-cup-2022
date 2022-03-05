@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from 'react'
 
-import './table.module.css'
+import styles from './table.module.css'
+
 import { useUUID } from 'hooks/utils'
 
 const renderDefaultHeader = ({ column }) => {
@@ -36,8 +37,8 @@ const Table = (props) => {
 
   return (
     <>
-      <div role="group" className="lists-container" aria-labelledby={captionID}>
-        <caption id={captionID}>{title}</caption>
+      <div role="group" className={styles.lists} aria-labelledby={captionID}>
+        <h2 id={captionID}>{title}</h2>
         {data.map((row, i) =>
           <dl role="list" key={i}>
               {columns.map((column, i) => {
@@ -60,7 +61,7 @@ const Table = (props) => {
       </div>
 
       <div
-        className="table-container"
+        className={styles.table}
         role="group"
         ref={containerRef}
         tabIndex={scrollable ? '0' : null}
