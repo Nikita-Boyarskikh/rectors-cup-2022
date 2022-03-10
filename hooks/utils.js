@@ -1,9 +1,8 @@
 import { v4 as uuidV4 } from 'uuid'
-import { useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
 export const useUUID = () => {
-  const [uuidStr] = useState(uuidV4())
-  return uuidStr
+  return useRef(uuidV4()).current
 }
 
 export const useCurrentTime = ({ updateInterval = 0 } = {}) => {
@@ -12,7 +11,7 @@ export const useCurrentTime = ({ updateInterval = 0 } = {}) => {
   const elapsedTimeRef = useRef(0)
   const [time, setTime] = useState(new Date())
 
-  const loop = (time) => {
+  const loop = useCallback((time) => {
     if (!previousTimeRef.current) {
       previousTimeRef.current = time
       requestRef.current = requestAnimationFrame(loop)
@@ -29,16 +28,16 @@ export const useCurrentTime = ({ updateInterval = 0 } = {}) => {
     }
 
     requestRef.current = requestAnimationFrame(loop)
-  }
+  }, [updateInterval])
 
-  const stop = () => {
+  const stop = useCallback(() => {
     requestRef.current && cancelAnimationFrame(requestRef.current)
     previousTimeRef.current = null
-  }
+  }, [])
 
-  const start = () => {
+  const start = useCallback(() => {
     requestRef.current = requestAnimationFrame(loop)
-  }
+  }, [loop])
 
   return { time, stop, start }
 }

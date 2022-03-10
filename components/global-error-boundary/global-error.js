@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import styles from './global-error.module.css'
 import config from '../../config'
 
@@ -22,4 +24,4 @@ const GlobalError = () => {
   )
 }
 
-export default GlobalError
+export default memo(GlobalError)

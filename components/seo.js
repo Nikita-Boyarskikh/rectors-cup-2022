@@ -1,12 +1,14 @@
 import Head from 'next/head'
+import { memo } from 'react'
+
 import config from '../config'
 
-export default function Seo({
+const Seo = ({
   pageTitle = config.seo.title,
   siteName = config.seo.title,
   description = config.seo.description,
   keywords = config.seo.keywords,
-} = {}) {
+} = {}) => {
   const previewImage = ''
   const previewImageAlt = ''
 
@@ -54,3 +56,5 @@ export default function Seo({
     </Head>
   )
 }
+
+export default memo(Seo)
