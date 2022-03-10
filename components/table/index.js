@@ -20,10 +20,11 @@ const Table = (props) => {
     renderNoData,
     renderHeader = renderDefaultHeader,
     renderCell = renderDefaultCell,
+    dataId = 'id',
   } = props
   const containerRef = useRef(null)
   const [scrollable, setScrollable] = useState(false)
-  const [captionID] = useUUID()
+  const captionID = useUUID()
 
   useEffect(() => {
     const container = containerRef.current
@@ -39,9 +40,9 @@ const Table = (props) => {
     <>
       <div role="group" className={styles.lists} aria-labelledby={captionID}>
         <h2 id={captionID}>{title}</h2>
-        {data.map((row, i) =>
-          <dl role="list" key={i}>
-              {columns.map((column, i) => {
+        {data.map((row) =>
+          <dl role="list" key={row[dataId]}>
+              {columns.map((column) => {
                 if (column.isRowHeader) {
                   return (
                     <h3 role="heading">{renderCell({ row, column })}</h3>
@@ -50,7 +51,7 @@ const Table = (props) => {
 
                 const termId = `term-${column.key}`
                 return (
-                  <Fragment key={i}>
+                  <Fragment key={column.key}>
                     <dt role="term" id={termId}>{renderHeader({ column })}</dt>
                     <dd role="definition" aria-labelledby={termId}>{renderCell({ row, column })}</dd>
                   </Fragment>
@@ -77,8 +78,8 @@ const Table = (props) => {
 
           <thead role="rowgroup">
             <tr role="row">
-              {columns.map((column, i) => (
-                <th role="columnheader" scope="col" key={i}>{
+              {columns.map((column) => (
+                <th role="columnheader" scope="col" key={column.key}>{
                   renderHeader(column)
                 }</th>
               ))}
@@ -86,19 +87,19 @@ const Table = (props) => {
           </thead>
 
           <tbody role="rowgroup">
-            {data.map((row, i) =>
-              <tr role="row" key={i}>
-                {columns.map((column, i) => {
+            {data.map((row) =>
+              <tr role="row" key={row[dataId]}>
+                {columns.map((column) => {
                   if (column.isRowHeader) {
                     return (
-                      <th role="rowheader" scope="row" key={i}>{
+                      <th role="rowheader" scope="row" key={column.key}>{
                         renderCell({ row, column })
                       }</th>
                     )
                   }
 
                   return (
-                    <td role="gridcell" key={i}>{
+                    <td role="gridcell" key={column.key}>{
                       renderCell({ row, column })
                     }</td>
                   )

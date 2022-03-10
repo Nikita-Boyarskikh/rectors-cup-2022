@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { memo } from 'react'
 
 import styles from './footer.module.css'
 import FvLogo from 'public/images/fv.jpg'
@@ -15,7 +16,7 @@ const Footer = () => {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
-  });
+  })
   const organizersId = useUUID()
 
   const icons = [
@@ -50,10 +51,10 @@ const Footer = () => {
     <footer className={styles.footer}>
       <span id={organizersId} className={styles.footerLabel}>ОРГАНИЗАТОРЫ СОРЕВНОВАНИЙ</span>
       <span aria-labelledby={organizersId} role="group" className={styles.footerIcons}>
-        {icons.map(({ src, alt, href }, i) => {
+        {icons.map(({ src, alt, href }) => {
           return (
             <a
-              key={i}
+              key={href}
               className={styles.footerIcon}
               href={href}
               target="_blank"
@@ -69,4 +70,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default memo(Footer)
