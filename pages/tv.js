@@ -4,7 +4,7 @@ import styles from './tv.module.css'
 
 import Seo from 'components/seo'
 import Header from 'components/header'
-import Table from 'components/table'
+import TeamResultsTable from 'components/team-results-table'
 import { useInfo } from 'hooks/api'
 import config from '../config'
 
@@ -33,7 +33,7 @@ const Tv = () => {
   }, [info, page])
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       setPage((page) => {
         if (page === pageNumber - 1) {
           return 0
@@ -42,21 +42,21 @@ const Tv = () => {
         return page + 1
       })
     }, config.tvTableUpdateIntervalSeconds * 1000)
+
+    return () => clearInterval(intervalId)
   }, [pageNumber])
 
   return (
     <>
       <Seo />
+
       <div className={styles.header}>
         <Header withLink />
       </div>
-      <Table
-        title="Промежуточные результаты"
-        columns={[
-          // TODO
-        ]}
-        data={infoPage}
-      />
+
+      <main>
+        <TeamResultsTable info={info} />
+      </main>
     </>
   )
 }
