@@ -4,12 +4,12 @@ import styles from './invite.module.css'
 import config from '../../config'
 
 const Invite = () => {
-  const startAtDate = config.cupStartsAt.toLocaleString('ru', {
+  const startAtDate = config.registrationEndsAt.toLocaleString('ru', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   })
-  const startAtTime = config.cupStartsAt.toLocaleString('ru', {
+  const startAtTime = config.registrationEndsAt.toLocaleString('ru', {
     hour: 'numeric',
     minute: 'numeric',
   })
