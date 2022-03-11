@@ -5,6 +5,7 @@ import { useCurrentTime } from 'hooks/utils'
 import Countdown from './countdown'
 import TeamResultsTable from 'components/team-results-table'
 import { useInfo } from '../../hooks/api'
+import Invite from './invite'
 
 const MainContent = () => {
   const info = useInfo()
@@ -26,7 +27,12 @@ const MainContent = () => {
     return <TeamResultsTable info={info} />
   }
 
-  return <Countdown time={time} />
+  return (
+    <>
+      <Countdown time={time} />
+      <Invite />
+    </>
+  )
 }
 
 export default MainContent
