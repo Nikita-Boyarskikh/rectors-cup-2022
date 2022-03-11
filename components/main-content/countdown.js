@@ -37,13 +37,13 @@ const Countdown = ({ time }) => {
   }, [remainingDaysNumber])
 
   return (
-    <div className={styles.countdown}>
+    <p className={styles.countdown}>
       Начало через <br />
       {remainingDays} <br />
       {remainingHours} <br />
       {remainingMinutes} <br />
       {remainingSeconds}
-    </div>
+    </p>
   )
 }
 
