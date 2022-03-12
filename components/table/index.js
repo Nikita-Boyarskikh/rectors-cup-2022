@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { Fragment, useEffect, useRef, useState } from 'react'
 
 import styles from './table.module.css'
@@ -21,6 +22,7 @@ const Table = (props) => {
     renderHeader = renderDefaultHeader,
     renderCell = renderDefaultCell,
     dataId = 'id',
+    large = false,
   } = props
   const containerRef = useRef(null)
   const [scrollable, setScrollable] = useState(false)
@@ -36,9 +38,13 @@ const Table = (props) => {
     return renderNoData(props)
   }
 
+  const classModifiers =  {
+    [styles.large]: large
+  }
+
   return (
     <>
-      <div role="group" className={styles.lists} aria-labelledby={captionID}>
+      <div role="group" className={classNames(styles.lists, classModifiers)} aria-labelledby={captionID}>
         <h2 id={captionID}>{title}</h2>
         {data.map((row) =>
           <dl role="list" key={row[dataId]}>
@@ -62,14 +68,14 @@ const Table = (props) => {
       </div>
 
       <div
-        className={styles.table}
+        className={classNames(styles.table, classModifiers)}
         role="group"
         ref={containerRef}
         tabIndex={scrollable ? '0' : null}
         aria-labelledby={captionID}
       >
         <table role="grid">
-          <caption id={captionID}>
+          <caption className={styles.caption} aria-hidden="true" id={captionID}>
             {title}
             {scrollable && (
               <small>(scroll to see more)</small>
@@ -79,8 +85,8 @@ const Table = (props) => {
           <thead role="rowgroup">
             <tr role="row">
               {columns.map((column) => (
-                <th role="columnheader" scope="col" key={column.key}>{
-                  renderHeader(column)
+                <th style={column.style} role="columnheader" scope="col" key={column.key}>{
+                  renderHeader({ column })
                 }</th>
               ))}
             </tr>
@@ -92,14 +98,14 @@ const Table = (props) => {
                 {columns.map((column) => {
                   if (column.isRowHeader) {
                     return (
-                      <th role="rowheader" scope="row" key={column.key}>{
+                      <th style={column.style} role="rowheader" scope="row" key={column.key}>{
                         renderCell({ row, column })
                       }</th>
                     )
                   }
 
                   return (
-                    <td role="gridcell" key={column.key}>{
+                    <td style={column.style} role="gridcell" key={column.key}>{
                       renderCell({ row, column })
                     }</td>
                   )

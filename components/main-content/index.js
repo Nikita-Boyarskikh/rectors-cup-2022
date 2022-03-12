@@ -4,11 +4,11 @@ import config from '../../config'
 import { useCurrentTime } from 'hooks/utils'
 import Countdown from './countdown'
 import TeamResultsTable from 'components/team-results-table'
-import { useInfo } from '../../hooks/api'
+import { useTeamsValue } from '../../hooks/api'
 import Invite from './invite'
 
 const MainContent = () => {
-  const info = useInfo()
+  const teams = useTeamsValue()
 
   const updateInterval = 1000 / config.countdownUpdatePerSecond
   const { time, start, stop } = useCurrentTime({ updateInterval })
@@ -24,7 +24,7 @@ const MainContent = () => {
   }, [cupHasStarted, start, stop])
 
   if (cupHasStarted) {
-    return <TeamResultsTable info={info} />
+    return <TeamResultsTable teams={teams || []} />
   }
 
   return (

@@ -9,10 +9,9 @@ const config = {
   },
 
   api: {
-    spreadsheetId: '1J4zdyvbm3qD3O5ZOOzfjIyh1JH24sjrETPOF5qgEwuo',
+    spreadsheetId: '1R3T3QSOs9FiSRaKx6sGuUUC4zMqfKit6Z99KrzCyQEY',
     apiKey: 'AIzaSyDkSzvnIny9wTOdEf6V_gPABamvHtYxrI4',
-    infoGridId: 'info',
-    studentsGridId: 'students',
+    commonGridId: 'common',
     teamsGridId: 'teams',
     updateInterval: 1000,
     focusThrottleInterval: 5000,
@@ -27,6 +26,8 @@ const config = {
 
   tvTableUpdateIntervalSeconds: 5,
   tvTableLinesPerPage: 7,
+
+  teamsNumber: 19,
 }
 
 export default config

@@ -79,66 +79,74 @@ export const useValue = ({ index = null, endIndex = index, columns = [], gid = n
   })
 }
 
-export const useInfoValue = ({ index, endIndex = index } = {}) => {
-  return useValue({
-    index,
-    endIndex,
-    gid: config.api.infoGridId,
-    columns: [
-      'time',
-      'startNumber',
-      'swimmingResult',
-      'climbingResult1',
-      'climbingPenalty1',
-      'climbingResult2',
-      'climbingPenalty2',
-      'runningAndShootingResult',
-      'shootingPenalty',
-      'total',
-    ],
-  })
-}
+export const useCommonValue = ({ index = 0, endIndex = index } = {}) => {
+  const indexOffset = 7
 
-export const useStudentValue = ({ index, endIndex = index } = {}) => {
-  return useValue({
-    index,
-    endIndex,
-    gid: config.api.studentsGridId,
+  const results = useValue({
+    index: index + indexOffset,
+    endIndex: endIndex + indexOffset,
+    gid: config.api.commonGridId,
     columns: [
-      'startNumber',
+      'id',
+      'teamId',
+      'participantNumber',
       'surname',
       'name',
-      'secondName',
-      'sex',
+      'teamName',
+      'faculty',
       'birthYear',
-      'participantNumber',
-      'teamNumber',
+      'sex',
+      'swimmingTime',
+      'swimmingPenalty',
+      'climbingTime1',
+      'climbingPenalty1',
+      'climbingTime2',
+      'climbingPenalty2',
+      'shootingPenalty1',
+      'shootingPenalty2',
+      'shootingTime',
+      'totalTime',
+      'coefficient',
+      'result',
     ],
+  })
+
+  if (!results) {
+    return null
+  }
+
+  return results.filter((value) => {
+    return value.name
   })
 }
 
-export const useTeamValue = ({ index, endIndex = index } = {}) => {
-  return useValue({
-    index,
-    endIndex,
+export const useTeamsValue = ({ index = 0, endIndex = index } = {}) => {
+  const indexOffset = 4
+
+  const teams = useValue({
+    index: index + indexOffset,
+    endIndex: endIndex + indexOffset,
     gid: config.api.teamsGridId,
     columns: [
-      'teamNumber',
-      'faculty',
+      'id',
       'name',
+      'faculty',
+      'total1',
+      'total2',
+      'total3',
+      'total4',
+      'total5',
+      'result',
     ],
   })
-}
 
-export const useUpdateEnabled = () => {
-  const rows = useRangeValue({ gid: config.api.infoGridId, range: 'L2' })
-  return rows && rows.length === 1 && rows[0][0] === 'TRUE'
-}
+  if (!teams) {
+    return null
+  }
 
-export const useInfo = () => {
-  const isEnabled = useUpdateEnabled()
-  const info = useInfoValue()
-  return isEnabled ? info : null
+  return teams.filter((team) => {
+    return team.name
+  })
 }
 
 export default Config

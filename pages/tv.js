@@ -5,32 +5,30 @@ import styles from './tv.module.css'
 import Seo from 'components/seo'
 import Header from 'components/header'
 import TeamResultsTable from 'components/team-results-table'
-import { useInfo } from 'hooks/api'
+import { useTeamsValue } from 'hooks/api'
 import config from '../config'
 
 const Tv = () => {
-  const info = useInfo()
+  const teams = useTeamsValue({ endIndex: config.teamsNumber })
   const [page, setPage] = useState(0)
 
   const pageNumber = useMemo(() => {
-    if (!info) {
+    if (!teams) {
       return 0
     }
 
-    return Math.ceil(info.length / config.tvTableLinesPerPage)
-  }, [info])
+    return Math.ceil(teams.length / config.tvTableLinesPerPage)
+  }, [teams])
 
-  const infoPage = useMemo(() => {
-    if (!info) {
+  const teamsPage = useMemo(() => {
+    if (!teams) {
       return []
     }
 
     const start = page * config.tvTableLinesPerPage
     const end = start + config.tvTableLinesPerPage
-    return info.slice(start, end).map((row) => {
-      return row  // TODO
-    })
-  }, [info, page])
+    return teams.slice(start, end)
+  }, [teams, page])
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -55,7 +53,7 @@ const Tv = () => {
       </div>
 
       <main>
-        <TeamResultsTable info={info} />
+        <TeamResultsTable large teams={teamsPage} />
       </main>
     </>
   )
