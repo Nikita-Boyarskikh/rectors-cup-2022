@@ -1,7 +1,17 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 export const useQuery = ({ query }) => {
-  const media = useRef(matchMedia(query)).current
+  const media = useMemo(() => {
+    try {
+      return matchMedia(query)
+    } catch {
+      return {
+        matches: false,
+        addEventListener: () => {},
+        removeEventListener: () => {},
+      }
+    }
+  }, [query])
   const [isMatches, setIsMatches] = useState(media.matches)
 
   const changeMediaMatch = useCallback(() => {
@@ -13,7 +23,6 @@ export const useQuery = ({ query }) => {
     return () => media.removeEventListener('change', changeMediaMatch)
   })
 
-  console.log(isMatches)
   return isMatches;
 }
 
