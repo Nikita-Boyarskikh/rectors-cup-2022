@@ -19,3 +19,20 @@ export const pluralize = (number, one, few, many) => {
 export const roundTo = (x, target) => {
   return (target + x) % target
 }
+
+export const sortByFields = ({ fields = [], resultField = 'result '} = []) => {
+  return (a, b) => {
+    const aFinishedResults = fields.map((field) => {
+      return a[field]
+    }).filter(Boolean)
+    const bFinishedResults = fields.map((field) => {
+      return b[field]
+    }).filter(Boolean)
+
+    if (aFinishedResults.length === bFinishedResults.length) {
+      return a.result.localeCompare(b.result)
+    }
+
+    return bFinishedResults.length - aFinishedResults.length
+  }
+}

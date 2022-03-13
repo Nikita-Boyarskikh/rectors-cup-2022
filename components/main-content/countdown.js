@@ -4,7 +4,6 @@ import { pluralize, roundTo } from '../../utils'
 
 const Countdown = ({ time }) => {
   const dateDiff = new Date(config.cupStartsAt - time)
-  console.error(dateDiff)
   const remainingSecondsNumber = dateDiff.getUTCSeconds()
   const remainingMinutesNumber = roundTo(dateDiff.getUTCMinutes(), 60)
   const remainingHoursNumber = roundTo(dateDiff.getUTCHours(), 24)

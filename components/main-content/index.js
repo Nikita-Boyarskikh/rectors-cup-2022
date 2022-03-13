@@ -14,7 +14,6 @@ import Invite from './invite'
 
 const MainContent = () => {
   const toggleId = useUUID()
-  const searchId = useUUID()
   const teams = useTeamsValue({ endIndex: config.teamsNumber })
   const results = useCommonValue({
     endIndex: config.teamsNumber * config.participantsNumber + 3,  // вне зачёта
@@ -85,17 +84,14 @@ const MainContent = () => {
       <main className={styles.main}>
         <div className={styles.controls}>
           {/*<SearchBar onChange={setSearchStr} />*/}
-          <div className={styles.search}>
-            <label className={styles.label} htmlFor={searchId}>Поиск</label>
-            <input
-              id={searchId}
-              className={styles.searchInput}
-              value={searchStr}
-              onInput={(event) => {
-                setSearchStr(event.target.value)
-              }}
-            />
-          </div>
+          <input
+            placeholder="Поиск"
+            className={styles.searchInput}
+            value={searchStr}
+            onInput={(event) => {
+              setSearchStr(event.target.value)
+            }}
+          />
 
           <div className={styles.toggleView}>
             <label className={styles.label} htmlFor={toggleId}>ПРОМЕЖУТОЧНЫЕ РЕЗУЛЬТАТЫ</label>

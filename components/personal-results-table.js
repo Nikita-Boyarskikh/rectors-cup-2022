@@ -74,6 +74,7 @@ const PersonalResultsTable = ({ results }) => {
       title="Личные результаты"
       columns={columns}
       data={results}
+      dataId="key"
     />
   )
 }

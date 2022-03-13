@@ -1,6 +1,7 @@
 import useSWR, { SWRConfig } from 'swr'
 
 import config from '../config'
+import { sortByFields } from '../utils'
 
 const Config = ({ children }) => {
   return (
@@ -118,11 +119,20 @@ export const useCommonValue = ({ index = 0, endIndex = index } = {}) => {
   return results.filter((value) => {
     return value.name
   }).map((result) => {
+    const name = result.surname + ' ' + result.name
     return {
       ...result,
-      name: result.surname + ' ' + result.name,
+      key: result.id + name,
+      name,
     }
-  })
+  }).sort(sortByFields({
+    fields: [
+      'swimmingTime',
+      'climbingTime1',
+      'climbingTime2',
+      'shootingTime',
+    ],
+  }))
 }
 
 export const useTeamsValue = ({ index = 0, endIndex = index } = {}) => {
@@ -155,9 +165,15 @@ export const useTeamsValue = ({ index = 0, endIndex = index } = {}) => {
       console.error(`Team result is not in correct format: ${team.result}`)
     }
     return team.name && isResultCorrect
-  }).sort((a, b) => {
-    return a.result.localeCompare(b.result)
-  })
+  }).sort(sortByFields({
+    fields: [
+      'total1',
+      'total2',
+      'total3',
+      'total4',
+      'total5',
+    ],
+  }))
 }
 
 export default Config
