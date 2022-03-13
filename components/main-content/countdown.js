@@ -33,7 +33,7 @@ const Countdown = ({ time }) => {
   }, [remainingHoursNumber])
 
   const remainingDays = useMemo(() => {
-    return pluralize(remainingDaysNumber, 'день', 'дня', 'дней')
+    return pluralize(Math.max(0, remainingDaysNumber), 'день', 'дня', 'дней')
   }, [remainingDaysNumber])
 
   return (
