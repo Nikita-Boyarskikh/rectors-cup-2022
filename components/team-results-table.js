@@ -60,10 +60,10 @@ const TeamResultsTable = ({ teams, large = false }) => {
     },
     {
       key: 'result',
-      header: 'Общее время',
+      header: 'Итог',
       style: {
         width: '12.5%',
-        minWidth: large ? '280px' : '175px',
+        minWidth: large ? '250px' : '175px',
       },
     },
   ]).current

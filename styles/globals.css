@@ -24,10 +24,9 @@ body {
   margin: 0;
   font-family: var(--font-text);
   background-color: var(--bg-color-primary);
+  height: 100%;
 }
 
-html,
-body,
 div#__next {
   height: 100%;
 }

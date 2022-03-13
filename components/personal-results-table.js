@@ -61,7 +61,7 @@ const PersonalResultsTable = ({ results }) => {
     },
     {
       key: 'result',
-      header: 'Общее время',
+      header: 'Итог',
       style: {
         width: '10%',
         minWidth: '200px',

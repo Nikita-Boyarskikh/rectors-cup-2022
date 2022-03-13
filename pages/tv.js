@@ -45,7 +45,7 @@ const Tv = () => {
   }, [pageNumber])
 
   return (
-    <>
+    <div className={styles.container}>
       <Seo />
 
       <div className={styles.header}>
@@ -55,7 +55,7 @@ const Tv = () => {
       <main>
         <TeamResultsTable large teams={teamsPage} />
       </main>
-    </>
+    </div>
   )
 }
 
