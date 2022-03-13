@@ -51,7 +51,7 @@ const Table = (props) => {
               {columns.map((column) => {
                 if (column.isRowHeader) {
                   return (
-                    <h3 role="heading">{renderCell({ row, column })}</h3>
+                    <h3 role="heading" key={`header-${column.key}`}>{renderCell({ row, column })}</h3>
                   )
                 }
 

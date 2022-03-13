@@ -59,6 +59,7 @@
   }
 
   & dt {
+    color: var(--text-color-accent);
     background: var(--bg-accent-gradient);
   }
 

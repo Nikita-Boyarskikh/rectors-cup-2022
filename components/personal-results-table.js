@@ -37,7 +37,7 @@ const PersonalResultsTable = ({ results }) => {
     },
     {
       key: 'swimmingTime',
-      header: 'Плаванье',
+      header: 'Плавание',
       style: {
         width: '10%',
         minWidth: '135px',
@@ -45,7 +45,7 @@ const PersonalResultsTable = ({ results }) => {
     },
     {
       key: 'climbingTime1',
-      header: 'Скалолазанье 1',
+      header: 'Скалолазание 1',
       style: {
         width: '10%',
         minWidth: '205px',
@@ -53,7 +53,7 @@ const PersonalResultsTable = ({ results }) => {
     },
     {
       key: 'climbingTime2',
-      header: 'Скалолазанье 2',
+      header: 'Скалолазание 2',
       style: {
         width: '10%',
         minWidth: '205px',
