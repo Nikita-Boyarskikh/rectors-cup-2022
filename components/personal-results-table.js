@@ -16,14 +16,14 @@ const PersonalResultsTable = ({ results }) => {
       header: '№',
       style: {
         width: '5%',
-        minWidth: '50px'
+        minWidth: '70px'
       },
     },
     {
       key: 'name',
       header: 'ФИО',
       style: {
-        width: '20%',
+        width: '25%',
         minWidth: '185px',
       },
     },
@@ -31,8 +31,8 @@ const PersonalResultsTable = ({ results }) => {
       key: 'teamName',
       header: 'Команда',
       style: {
-        width: '5%',
-        minWidth: '120px',
+        width: '10%',
+        minWidth: '125px',
       },
     },
     {
@@ -63,16 +63,16 @@ const PersonalResultsTable = ({ results }) => {
       key: 'shootingTime',
       header: 'Стрельба и бег',
       style: {
-        width: '25%',
-        minWidth: '200px',
+        width: '12.5%',
+        minWidth: '195px',
       },
     },
     {
       key: 'result',
       header: 'Итог',
       style: {
-        width: '10%',
-        minWidth: '200px',
+        width: '7.5%',
+        minWidth: '125px',
       },
     },
   ]).current

@@ -45,7 +45,7 @@ const Table = (props) => {
   return (
     <>
       <div role="group" className={classNames(styles.lists, classModifiers)} aria-labelledby={captionID}>
-        <h2 id={captionID}>{title}</h2>
+        <h2 className={styles.caption} aria-hidden="true" id={captionID}>{title}</h2>
         {data.map((row) =>
           <dl role="list" key={row[dataId]}>
               {columns.map((column) => {

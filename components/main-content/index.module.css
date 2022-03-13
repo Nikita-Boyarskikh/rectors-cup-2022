@@ -29,13 +29,17 @@
   flex-shrink: 1;
   margin-right: 30px;
   height: 40px;
-  color: var(--text-color-accent);
+  color: var(--text-color-secondary);
   font-size: 1rem;
   line-height: 1rem;
   padding: 10px;
   text-transform: uppercase;
   background: var(--bg-secondary-gradient);
   border: none;
+
+  &::placeholder {
+    color: var(--text-color-secondary);
+  }
 }
 
 .label {

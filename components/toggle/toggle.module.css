@@ -13,10 +13,11 @@
   line-height: 1rem;
   padding: 10px;
   text-transform: uppercase;
-  color: var(--text-color-accent);
+  color: var(--text-color-secondary);
   background: var(--bg-secondary-gradient);
 }
 
 .active {
+  color: var(--text-color-accent);
   background: var(--bg-accent-gradient);
 }

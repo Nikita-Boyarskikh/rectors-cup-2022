@@ -11,18 +11,11 @@ const TeamResultsTable = ({ teams, large = false }) => {
       },
     },
     {
-      key: 'id',
-      header: '№',
-      style: {
-        minWidth: large ? '70px' : '50px',
-      },
-    },
-    {
       key: 'name',
       header: 'Команда',
       style: {
         width: '15%',
-        minWidth: large ? '185px' : '120px',
+        minWidth: large ? '185px' : '125px',
       },
     },
     {
