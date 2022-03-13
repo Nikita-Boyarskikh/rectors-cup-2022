@@ -1,40 +1,19 @@
 import styles from './countdown.module.css'
 import config from '../../config'
 import { pluralize, roundTo } from '../../utils'
-import { useMemo } from 'react'
 
 const Countdown = ({ time }) => {
-  const seconds = time.getSeconds()
-  const minutes = time.getMinutes()
-  const hours = time.getHours()
-  const date = time.getDate()
+  const dateDiff = new Date(config.cupStartsAt - time)
+  console.error(dateDiff)
+  const remainingSecondsNumber = dateDiff.getUTCSeconds()
+  const remainingMinutesNumber = roundTo(dateDiff.getUTCMinutes(), 60)
+  const remainingHoursNumber = roundTo(dateDiff.getUTCHours(), 24)
+  const remainingDaysNumber = dateDiff.getUTCDate() - 1
 
-  const remainingSecondsNumber = config.cupStartsAt.getSeconds() - seconds
-  const remainingMinutesNumber = useMemo(() => {
-    return config.cupStartsAt.getMinutes() - minutes - (remainingSecondsNumber > 0 ? 0 : 1)
-  }, [minutes, remainingSecondsNumber])
-  const remainingHoursNumber = useMemo(() => {
-    return config.cupStartsAt.getHours() - hours - (remainingMinutesNumber > 0 ? 0 : 1)
-  }, [hours, remainingMinutesNumber])
-  const remainingDaysNumber = useMemo(() => {
-    return config.cupStartsAt.getDate() - date - (remainingHoursNumber > 0 ? 0 : 1)
-  }, [date, remainingHoursNumber])
-
-  const remainingSeconds = useMemo(() => {
-    return pluralize(roundTo(remainingSecondsNumber, 60), 'секунду', 'секунды', 'секунд')
-  }, [remainingSecondsNumber])
-
-  const remainingMinutes = useMemo(() => {
-    return pluralize(roundTo(remainingMinutesNumber, 60), 'минуту', 'минуты', 'минут')
-  }, [remainingMinutesNumber])
-
-  const remainingHours = useMemo(() => {
-    return pluralize(roundTo(remainingHoursNumber, 24), 'час', 'часа', 'часов')
-  }, [remainingHoursNumber])
-
-  const remainingDays = useMemo(() => {
-    return pluralize(Math.max(0, remainingDaysNumber), 'день', 'дня', 'дней')
-  }, [remainingDaysNumber])
+  const remainingSeconds = pluralize(remainingSecondsNumber, 'секунду', 'секунды', 'секунд')
+  const remainingMinutes = pluralize(remainingMinutesNumber, 'минуту', 'минуты', 'минут')
+  const remainingHours = pluralize(remainingHoursNumber, 'час', 'часа', 'часов')
+  const remainingDays = pluralize(remainingDaysNumber, 'день', 'дня', 'дней')
 
   return (
     <p className={styles.countdown}>
