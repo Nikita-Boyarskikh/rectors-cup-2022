@@ -4,6 +4,14 @@ import Table from './table'
 const PersonalResultsTable = ({ results }) => {
   const columns = useRef([
     {
+      key: 'place',
+      header: 'Место',
+      style: {
+        width: '5%',
+        minWidth: '100px'
+      },
+    },
+    {
       key: 'id',
       header: '№',
       style: {
@@ -15,7 +23,7 @@ const PersonalResultsTable = ({ results }) => {
       key: 'name',
       header: 'ФИО',
       style: {
-        width: '15%',
+        width: '20%',
         minWidth: '185px',
       },
     },
@@ -24,7 +32,7 @@ const PersonalResultsTable = ({ results }) => {
       header: 'Команда',
       style: {
         width: '5%',
-        minWidth: '125px',
+        minWidth: '120px',
       },
     },
     {

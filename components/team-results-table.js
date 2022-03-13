@@ -4,6 +4,13 @@ import Table from './table'
 const TeamResultsTable = ({ teams, large = false }) => {
   const columns = useRef([
     {
+      key: 'place',
+      header: 'Место',
+      style: {
+        minWidth: large ? '140px' : '100px',
+      },
+    },
+    {
       key: 'id',
       header: '№',
       style: {

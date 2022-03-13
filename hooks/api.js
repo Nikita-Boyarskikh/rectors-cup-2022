@@ -118,13 +118,6 @@ export const useCommonValue = ({ index = 0, endIndex = index } = {}) => {
 
   return results.filter((value) => {
     return value.name
-  }).map((result) => {
-    const name = result.surname + ' ' + result.name
-    return {
-      ...result,
-      key: result.id + name,
-      name,
-    }
   }).sort(sortByFields({
     fields: [
       'swimmingTime',
@@ -132,7 +125,15 @@ export const useCommonValue = ({ index = 0, endIndex = index } = {}) => {
       'climbingTime2',
       'shootingTime',
     ],
-  }))
+  })).map((result, i) => {
+    const name = result.surname + ' ' + result.name
+    return {
+      ...result,
+      key: result.id + name,
+      place: i + 1,
+      name,
+    }
+  })
 }
 
 export const useTeamsValue = ({ index = 0, endIndex = index } = {}) => {
@@ -173,7 +174,12 @@ export const useTeamsValue = ({ index = 0, endIndex = index } = {}) => {
       'total4',
       'total5',
     ],
-  }))
+  })).map((team, i) => {
+    return {
+      ...team,
+      place: i + 1,
+    }
+  })
 }
 
 export default Config
