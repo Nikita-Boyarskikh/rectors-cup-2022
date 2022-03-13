@@ -28,6 +28,7 @@ const config = {
   tvTableLinesPerPage: 7,
 
   teamsNumber: 19,
+  participantsNumber: 5,
 }
 
 export default config

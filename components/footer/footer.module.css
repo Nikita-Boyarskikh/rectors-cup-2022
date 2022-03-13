@@ -19,10 +19,10 @@
   max-width: 120px;
   display: block;
   margin: auto 15px;
-}
 
-.footerIcon img {
-  height: 100px;
+  & img {
+    height: 100px;
+  }
 }
 
 .startsAt {

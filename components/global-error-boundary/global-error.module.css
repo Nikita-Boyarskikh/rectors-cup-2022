@@ -5,8 +5,8 @@
 .description {
   word-break: break-word;
   font-size: 1.5rem;
-}
 
-.description a {
-  text-decoration: underline;
+  & a {
+    text-decoration: underline;
+  }
 }

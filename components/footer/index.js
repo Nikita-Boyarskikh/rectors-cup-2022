@@ -49,8 +49,8 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <span id={organizersId} className={styles.footerLabel}>ОРГАНИЗАТОРЫ СОРЕВНОВАНИЙ</span>
-      <span aria-labelledby={organizersId} role="group" className={styles.footerIcons}>
+      <label htmlFor={organizersId} className={styles.footerLabel}>ОРГАНИЗАТОРЫ СОРЕВНОВАНИЙ</label>
+      <span id={organizersId} role="group" className={styles.footerIcons}>
         {icons.map(({ src, alt, href }) => {
           return (
             <a

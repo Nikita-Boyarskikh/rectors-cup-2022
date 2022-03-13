@@ -7,7 +7,7 @@ const TeamResultsTable = ({ teams, large = false }) => {
       key: 'id',
       header: '№',
       style: {
-        minWidth: '70px',
+        minWidth: large ? '70px' : '50px',
       },
     },
     {
@@ -15,7 +15,7 @@ const TeamResultsTable = ({ teams, large = false }) => {
       header: 'Команда',
       style: {
         width: '15%',
-        minWidth: '185px',
+        minWidth: large ? '185px' : '120px',
       },
     },
     {
@@ -23,7 +23,7 @@ const TeamResultsTable = ({ teams, large = false }) => {
       header: 'Участник 1',
       style: {
         width: '12.5%',
-        minWidth: '235px',
+        minWidth: large ? '235px' : '150px',
       },
     },
     {
@@ -31,7 +31,7 @@ const TeamResultsTable = ({ teams, large = false }) => {
       header: 'Участник 2',
       style: {
         width: '12.5%',
-        minWidth: '235px',
+        minWidth: large ? '235px' : '150px',
       },
     },
     {
@@ -39,7 +39,7 @@ const TeamResultsTable = ({ teams, large = false }) => {
       header: 'Участник 3',
       style: {
         width: '12.5%',
-        minWidth: '235px',
+        minWidth: large ? '235px' : '150px',
       },
     },
     {
@@ -47,7 +47,7 @@ const TeamResultsTable = ({ teams, large = false }) => {
       header: 'Участник 4',
       style: {
         width: '12.5%',
-        minWidth: '235px',
+        minWidth: large ? '235px' : '150px',
       },
     },
     {
@@ -55,7 +55,7 @@ const TeamResultsTable = ({ teams, large = false }) => {
       header: 'Участник 5',
       style: {
         width: '15%',
-        minWidth: '235px',
+        minWidth: large ? '235px' : '150px',
       },
     },
     {
@@ -63,7 +63,7 @@ const TeamResultsTable = ({ teams, large = false }) => {
       header: 'Общее время',
       style: {
         width: '12.5%',
-        minWidth: '280px',
+        minWidth: large ? '280px' : '175px',
       },
     },
   ]).current

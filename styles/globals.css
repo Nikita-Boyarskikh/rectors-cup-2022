@@ -8,6 +8,7 @@
   --bg-color-primary: #FEFEFE;
   --bg-color-secondary: #FFF1EE;
   --bg-accent-gradient: linear-gradient(#E35F22 0%, #E92B07 100%);
+  --bg-secondary-gradient: linear-gradient(#C5C7C6 0%, #E4E3E2 100%);
 
   --text-color-primary: #2A2927;
   --text-color-secondary: #898989;
@@ -23,6 +24,12 @@ body {
   margin: 0;
   font-family: var(--font-text);
   background-color: var(--bg-color-primary);
+}
+
+html,
+body,
+div#__next {
+  height: 100%;
 }
 
 a {

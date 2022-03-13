@@ -10,11 +10,7 @@ const Index = () => {
     <div className={styles.container}>
       <Seo />
       <Header />
-
-      <main className={styles.main}>
-        <MainContent />
-      </main>
-
+      <MainContent />
       <Footer />
     </div>
   )

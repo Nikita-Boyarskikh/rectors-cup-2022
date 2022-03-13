@@ -1,0 +1,21 @@
+.toggle {
+  display: flex;
+}
+
+.variant {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 40px;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 10px;
+  text-transform: uppercase;
+  color: var(--text-color-accent);
+  background: var(--bg-secondary-gradient);
+}
+
+.active {
+  background: var(--bg-accent-gradient);
+}

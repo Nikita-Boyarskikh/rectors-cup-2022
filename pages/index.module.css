@@ -5,10 +5,5 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  font-size: 3rem;
+  height: 100%;
 }

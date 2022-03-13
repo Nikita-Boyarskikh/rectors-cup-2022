@@ -61,7 +61,7 @@ export const useValue = ({ index = null, endIndex = index, columns = [], gid = n
   const endColumn = String.fromCharCode(endColumnCharCode)
 
   const startIndexStr = formatIndex(index)
-  const endIndexStr = formatIndex(endIndex)
+  const endIndexStr = formatIndex(endIndex - 1)
   const range = `${startColumn}${startIndexStr}:${endColumn}${endIndexStr}`
 
   const rows = useRangeValue({ gid, range })
@@ -117,6 +117,11 @@ export const useCommonValue = ({ index = 0, endIndex = index } = {}) => {
 
   return results.filter((value) => {
     return value.name
+  }).map((result) => {
+    return {
+      ...result,
+      name: result.surname + ' ' + result.name,
+    }
   })
 }
 
@@ -145,7 +150,13 @@ export const useTeamsValue = ({ index = 0, endIndex = index } = {}) => {
   }
 
   return teams.filter((team) => {
-    return team.name
+    const isResultCorrect = /\d{2}:\d{2}.\d{2}/.test(team.result)
+    if (!isResultCorrect) {
+      console.error(`Team result is not in correct format: ${team.result}`)
+    }
+    return team.name && isResultCorrect
+  }).sort((a, b) => {
+    return a.result.localeCompare(b.result)
   })
 }
 

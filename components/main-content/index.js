@@ -1,18 +1,43 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+
+import styles from './index.module.css'
 
 import config from '../../config'
-import { useCurrentTime } from 'hooks/utils'
-import Countdown from './countdown'
+import { useCurrentTime, useUUID } from 'hooks/utils'
+import { useCommonValue, useTeamsValue } from 'hooks/api'
 import TeamResultsTable from 'components/team-results-table'
-import { useTeamsValue } from '../../hooks/api'
+import PersonalResultsTable from 'components/personal-results-table'
+import Toggle from 'components/toggle'
+import SearchBar from 'components/search-bar'
+import Countdown from './countdown'
 import Invite from './invite'
 
 const MainContent = () => {
-  const teams = useTeamsValue()
+  const toggleId = useUUID()
+  const searchId = useUUID()
+  const teams = useTeamsValue({ endIndex: config.teamsNumber })
+  const results = useCommonValue({
+    endIndex: config.teamsNumber * config.participantsNumber + 3,  // вне зачёта
+  })
+  const isLoading = teams === null
 
   const updateInterval = 1000 / config.countdownUpdatePerSecond
   const { time, start, stop } = useCurrentTime({ updateInterval })
   const cupHasStarted = config.cupStartsAt <= time
+
+  const [currentTableVariant, setTableVariant] = useState('personal')
+  const tableVariants = useMemo(() => {
+    return [
+      {
+        id: 'personal',
+        value: 'ЛИЧНЫЕ',
+      },
+      {
+        id: 'team',
+        value: 'КОМАНДНЫЕ',
+      },
+    ]
+  }, [])
 
   useEffect(() => {
     if (!cupHasStarted) {
@@ -23,15 +48,78 @@ const MainContent = () => {
     stop()
   }, [cupHasStarted, start, stop])
 
+  const [searchStr, setSearchStr] = useState('')
+
+  const filteredTeams = useMemo(() => {
+    if (!teams) {
+      return []
+    }
+
+    if (!searchStr) {
+      return teams
+    }
+
+    return teams.filter((team) => {
+      const searchLower = searchStr.toLowerCase()
+      return team.id.toLowerCase().includes(searchLower) || team.name.toLowerCase().includes(searchLower)
+    })
+  }, [searchStr, teams])
+
+  const filteredResults = useMemo(() => {
+    if (!results) {
+      return []
+    }
+
+    if (!searchStr) {
+      return results
+    }
+
+    return results.filter((result) => {
+      const searchLower = searchStr.toLowerCase()
+      return result.id.toLowerCase().includes(searchLower) || result.name.toLowerCase().includes(searchLower)
+    })
+  }, [searchStr, results])
+
   if (cupHasStarted) {
-    return <TeamResultsTable teams={teams || []} />
+    return (
+      <main className={styles.main}>
+        <div className={styles.controls}>
+          {/*<SearchBar onChange={setSearchStr} />*/}
+          <div className={styles.search}>
+            <label className={styles.label} htmlFor={searchId}>Поиск</label>
+            <input
+              id={searchId}
+              className={styles.searchInput}
+              value={searchStr}
+              onInput={(event) => {
+                setSearchStr(event.target.value)
+              }}
+            />
+          </div>
+
+          <div className={styles.toggleView}>
+            <label className={styles.label} htmlFor={toggleId}>ПРОМЕЖУТОЧНЫЕ РЕЗУЛЬТАТЫ</label>
+            <Toggle variants={tableVariants} value={currentTableVariant} onChange={setTableVariant} id={toggleId} />
+          </div>
+        </div>
+        <div className={styles.table}>
+          {
+            currentTableVariant === 'team' ? (
+              <TeamResultsTable teams={filteredTeams} />
+            ) : (
+              <PersonalResultsTable results={filteredResults} />
+            )
+          }
+        </div>
+      </main>
+    )
   }
 
   return (
-    <>
+    <main className={styles.main}>
       <Countdown time={time} />
       <Invite />
-    </>
+    </main>
   )
 }
 
