@@ -22,5 +22,5 @@ Allow: *.png
 Allow: *.jpg
 Allow: *.svg
 
-Sitemap: https://bg-2020.vercel.app/sitemap.xml
-Host: https://bg-2020.vercel.app
+Sitemap: https://bg-2023.vercel.app/sitemap.xml
+Host: https://bg-2023.vercel.app

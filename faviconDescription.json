@@ -12,7 +12,7 @@
         "precomposedIcons": true,
         "declareOnlyDefaultIcon": true
       },
-      "appName": "Кубок ректора 2022"
+      "appName": "Кубок ректора 2023"
     },
     "desktopBrowser": {
       "design": "raw"
@@ -30,13 +30,13 @@
           "rectangle": true
         }
       },
-      "appName": "Кубок ректора 2022"
+      "appName": "Кубок ректора 2023"
     },
     "androidChrome": {
       "pictureAspect": "noChange",
       "themeColor": "#FCD800",
       "manifest": {
-        "name": "Кубок ректора 2022",
+        "name": "Кубок ректора 2023",
         "display": "standalone",
         "orientation": "notSet",
         "onConflict": "override",

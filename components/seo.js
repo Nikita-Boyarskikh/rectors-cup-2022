@@ -27,7 +27,7 @@ const Seo = ({
       <meta name="viewport" content="width=device-width,initial-scale=1" key="viewport" />
       <meta name="mobile-web-app-capable" content="yes" key="mobilewebcap" />
       <meta name="description" content={description} key="description" />
-      <link rel="canonical" href="https://bg-2020.vercel.app" />
+      <link rel="canonical" href="https://bg-2023.vercel.app" />
 
       <meta name="application-name" content={siteName} key="appmobilename" />
       <meta name="apple-mobile-web-app-capable" content="yes" key="appmobilecap" />

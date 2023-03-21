@@ -3,7 +3,6 @@ import { memo } from 'react'
 
 import styles from './footer.module.css'
 import FvLogo from 'public/images/fv.jpg'
-import PandasLogo from 'public/images/pandas.png'
 import GoClimbLogo from 'public/images/goclimb.png'
 import ProfcomLogo from 'public/images/profcom.png'
 import BmstuLogo from 'public/images/bmstu.png'
@@ -34,11 +33,6 @@ const Footer = () => {
       src: FvLogo,
       alt: 'Логотип кафедры физического воспитания МГТУ им. Баумана',
       href: 'https://vk.com/fv.bmstu',
-    },
-    {
-      src: PandasLogo,
-      alt: 'Логотип ФОК "Бауманские панды"',
-      href: 'https://vk.com/bauman_pandas',
     },
     {
       src: GoClimbLogo,

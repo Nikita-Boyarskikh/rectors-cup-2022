@@ -1,7 +1,7 @@
 {
-  "name": "rectors-cup-2022",
+  "name": "rectors-cup-2023",
   "version": "0.1.0",
-  "description": "Web application to watch BMSTU Rector's Cup 2022 results in real time",
+  "description": "Web application to watch BMSTU Rector's Cup 2023 results in real time",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
   },
   "repository": "github:Nikita-Boyarskikh/rectors-cup-2022",
   "bugs": "https://github.com/Nikita-Boyarskikh/rectors-cup-2022/issues",
-  "homepage": "https://bg-2020.vercel.app",
+  "homepage": "https://bg-2023.vercel.app",
   "browserslist": [
     "defaults"
   ],
