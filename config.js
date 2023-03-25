@@ -21,7 +21,7 @@ const config = {
   },
 
   countdownUpdatePerSecond: 10,
-  cupStartsAt: new Date('2023-03-26T11:00:00+03:00'),
+  cupStartsAt: new Date('2023-03-13T11:00:00+03:00'),
   registrationEndsAt: new Date('2023-03-26T10:40:00+03:00'),
 
   tvTableUpdateIntervalSeconds: 5,
