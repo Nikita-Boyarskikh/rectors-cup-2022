@@ -1,6 +1,5 @@
 const config = {
   baseUrl: 'bg-2023.vercel.app',
-  minifiedUrl: 'clck.ru/dVwtp',
 
   seo: {
     title: 'Кубок ректора 2023 — таблица результатов',
@@ -21,13 +20,13 @@ const config = {
   },
 
   countdownUpdatePerSecond: 10,
-  cupStartsAt: new Date('2023-03-26T11:00:00+03:00'),
-  registrationEndsAt: new Date('2023-03-26T10:40:00+03:00'),
+  cupStartsAt: new Date('2023-03-25T11:00:00+03:00'),
+  registrationEndsAt: new Date('2023-03-25T10:40:00+03:00'),
 
   tvTableUpdateIntervalSeconds: 5,
   tvTableLinesPerPage: 7,
 
-  teamsNumber: 19,
+  teamsNumber: 18,
   participantsNumber: 5,
 }
 
