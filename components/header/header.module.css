@@ -40,6 +40,7 @@
   white-space: nowrap;
   line-height: 1.5rem;
   font-size: 1.5rem;
+  color: var(--text-color-primary);
 }
 
 .linkQr {
@@ -78,5 +79,17 @@
 @media (--mobile-media) {
   .header {
     --header-font-size: 1.5rem;
+  }
+}
+
+.logo {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
+.large {
+  & .logo {
+    width: 450px;
   }
 }

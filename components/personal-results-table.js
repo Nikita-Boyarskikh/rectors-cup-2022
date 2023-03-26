@@ -48,7 +48,7 @@ const PersonalResultsTable = ({ results }) => {
       header: 'Скалолазание 1',
       style: {
         width: '10%',
-        minWidth: '205px',
+        minWidth: '210px',
       },
     },
     {
@@ -56,7 +56,7 @@ const PersonalResultsTable = ({ results }) => {
       header: 'Скалолазание 2',
       style: {
         width: '10%',
-        minWidth: '205px',
+        minWidth: '210px',
       },
     },
     {

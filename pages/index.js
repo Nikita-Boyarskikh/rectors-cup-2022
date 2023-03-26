@@ -11,7 +11,7 @@ const Index = () => {
       <Seo />
       <Header />
       <MainContent />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

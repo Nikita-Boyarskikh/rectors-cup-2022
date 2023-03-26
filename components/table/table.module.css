@@ -6,6 +6,7 @@
   --table-font-size: 1.5rem;
   font-size: var(--table-font-size);
   line-height: var(--table-font-size);
+  color: var(--text-color-primary);
 
   & table {
     width: 100%;
@@ -59,7 +60,7 @@
   }
 
   & dt {
-    color: var(--text-color-accent);
+    color: var(--text-color-accent); 
     background: var(--bg-accent-gradient);
   }
 

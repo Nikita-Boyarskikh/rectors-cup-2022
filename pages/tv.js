@@ -49,7 +49,7 @@ const Tv = () => {
       <Seo />
 
       <div className={styles.header}>
-        <Header withLink />
+        <Header withLink large />
       </div>
 
       <main>
