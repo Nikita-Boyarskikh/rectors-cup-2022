@@ -26,7 +26,7 @@ const config = {
   tvTableUpdateIntervalSeconds: 5,
   tvTableLinesPerPage: 7,
 
-  teamsNumber: 18,
+  teamsNumber: 21,
   participantsNumber: 5,
 }
 
