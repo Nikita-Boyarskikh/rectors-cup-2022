@@ -16,7 +16,8 @@ const MainContent = () => {
   const toggleId = useUUID()
   const teams = useTeamsValue({ endIndex: config.teamsNumber })
   const results = useCommonValue({
-    endIndex: config.teamsNumber * config.participantsNumber + 3,  // вне зачёта
+    // Because of space of one row between start numbers
+    endIndex: (config.teamsNumber + 1) * config.participantsNumber + config.personalMembersNumber,
   })
   const isLoading = teams === null
 
