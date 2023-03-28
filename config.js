@@ -26,8 +26,9 @@ const config = {
   tvTableUpdateIntervalSeconds: 5,
   tvTableLinesPerPage: 7,
 
-  teamsNumber: 21,
+  teamsNumber: 18,
   participantsNumber: 5,
+  personalMembersNumber: 7,
 }
 
 export default config
